@@ -1,0 +1,34 @@
+<h1>{{question}}</h1>
+
+{{#if isEditing}}
+  <form>
+    <div class="form-group">
+      <label for="question">Edit the question here:</label>
+      {{input id="question" class="form-control" value=question}}
+      <label for="author">Edit the author here:</label>
+      {{input id="author" class="form-control" value=author}}
+      <label for="description">Edit the description here:</label>
+      {{input id="description" class="form-control" value=description}}
+    </div>
+      <button class="btn btn-primary" {{action 'saveQuestion'}}>Save Changes</button>
+  </form>
+{{else}}
+  <button class="btn btn-warning" {{action 'editQuestion'}}>Edit the details of this question</button>
+  <button class="btn btn-danger" {{action 'deleteQuestion'}}>Edit the details of this question</button>
+{{/if}}
+
+<h3>Answers to this question:</h3>
+<p>Click on an answer below to remove it</p>
+<ul>
+  {{#each answer in answers}}
+  <li>{{action 'deleteAnswer' this.id}}{{answer}}</li>
+</ul>
+
+<h3>Add an answer to this question below:</h3>
+<form>
+  <div class="form-group">
+    <label for="addAnswer">Enter your answer here</label>
+    {{input id="addAnswer" class="form-control" value=addAnswer}}
+    <button class="btn btn-primary" {{action 'addAnswer'}}>Add Answer</button>
+  </div>
+</form>

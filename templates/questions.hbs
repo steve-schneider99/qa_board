@@ -1,0 +1,20 @@
+<h1>Question/Answer Board</h1>
+
+<h3>List of questions:</h3>
+
+<ul>
+  {{#each}}
+    <li>{{#link-to 'question' this.id}}{{question}}{{author}}</li>
+</ul>
+
+<h3>Add a question:</h3>
+<form>
+  <div class="form-group">
+    <label for="question">Question</label>
+    {{input id="question" class="form-control" value=question}}
+    <label for="author">Author</label>
+    {{input id="author" class="form-control" value=author}}
+    <label for="description">Description</label>
+    {{input id="description" class="form-control" value=description}}
+  </div>
+</form>
