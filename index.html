@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dracula's blog</title>
+  <title>Question/Answer Board</title>
 
   <link rel="stylesheet" href="styles/bootstrap.css">
 
@@ -16,11 +16,17 @@
   <script src="store.js"></script>
   <script src="router.js"></script>
 
-  
+  <script src="models/question.js"></script>
+
+  <script src="routes/questions.js"></script>
+  <script src="routes/question.js"></script>
+
+  <script src="controllers/questions.js"></script>
+  <script src="controllers/question.js"></script>
 
   <script>
     EmberHandlebarsLoader.loadTemplates([
-
+      'application', 'questions', 'question',
     ]);
   </script>
 </head>
