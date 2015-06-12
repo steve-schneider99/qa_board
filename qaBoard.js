@@ -1,3 +1,3 @@
-qaBoard = Ember.Application.create({
+QaBoard = Ember.Application.create({
   LOG_TRANSITIONS: true
 });
