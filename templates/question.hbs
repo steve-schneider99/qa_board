@@ -1,35 +1,45 @@
-<h1>{{question}}</h1>
+<div class="row">
+  <div class="col-md-8">
+    <h2>Question: '{{question}}'</h2>
+    <h4>Description: '{{description}}'</h4>
+    <h4>Authored by: {{author}}</h4>
+    {{#if questionEditing}}
+      <form>
+        <div class="form-group">
+          <label for="question">Edit the question here:</label>
+          {{input id="question" class="form-control" value=question}}
+          <label for="author">Edit the author here:</label>
+          {{input id="author" class="form-control" value=author}}
+          <label for="description">Edit the description here:</label>
+          {{input id="description" class="form-control" value=description}}
+        </div>
+          <button class="btn btn-primary" {{action 'saveQuestion'}}>Save Changes</button>
+      </form>
+    {{else}}
+      <button class="btn btn-warning" {{action 'editQuestion'}}>Edit the details of this question</button>
+      <button class="btn btn-danger" {{action 'deleteQuestion'}}>Delete this question</button>
+    {{/if}}
 
-{{#if isEditing}}
+    <h2>Answers to this question:</h2>
+    <p>Click on an answer below to remove it</p>
+
+    <p>answers should be here: {{answers}}</p>
+    <!-- <ul>
+      {{#each answers}}
+      <li>{{answer}}</li>
+      {{/each}}
+    </ul> -->
+  </div>
+  <div class="col-md-4">
+  <h3>Add answers below:</h3>
   <form>
     <div class="form-group">
-      <label for="question">Edit the question here:</label>
-      {{input id="question" class="form-control" value=question}}
-      <label for="author">Edit the author here:</label>
-      {{input id="author" class="form-control" value=author}}
-      <label for="description">Edit the description here:</label>
-      {{input id="description" class="form-control" value=description}}
+      <label for="newAnswer">Enter your answer here</label>
+      {{input id="newAnswer" class="form-control" value=newAnswer}}
+      <br>
+      <button class="btn btn-primary" {{action 'addAnswer'}}>Add Answer</button>
     </div>
-      <button class="btn btn-primary" {{action 'saveQuestion'}}>Save Changes</button>
   </form>
-{{else}}
-  <button class="btn btn-warning" {{action 'editQuestion'}}>Edit the details of this question</button>
-  <button class="btn btn-danger" {{action 'deleteQuestion'}}>Edit the details of this question</button>
-{{/if}}
 
-<h3>Answers to this question:</h3>
-<p>Click on an answer below to remove it</p>
-<ul>
-  {{#each answer in answers}}
-  <li>{{action 'deleteAnswer' this.id}}{{answer}}</li>
-  {{/each}}
-</ul>
-
-<h3>Add an answer to this question below:</h3>
-<form>
-  <div class="form-group">
-    <label for="addAnswer">Enter your answer here</label>
-    {{input id="addAnswer" class="form-control" value=addAnswer}}
-    <button class="btn btn-primary" {{action 'addAnswer'}}>Add Answer</button>
   </div>
-</form>
+</div>

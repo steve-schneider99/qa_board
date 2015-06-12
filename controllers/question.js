@@ -14,12 +14,14 @@ QaBoard.QuestionController = Ember.ObjectController.extend({
       }
     },
     addAnswer: function() {
-      var newAnswer = this.get('addAnswer')
-      this.get('answers').pushObject(newAnswer);
+      var inputAnswer = this.get('newAnswer');
+      var newAnswers = this.get('answers').addObject(inputAnswer);
+      this.set('answers', newAnswers);
+      this.set('newAnswer', '');
     },
-    deleteAnswer: function(params) {
+    deleteAnswer: function() {
       var answers = this.get('answers');
-      answers.popObject(answers);
+      answers.popObject(params);
     }
   }
 });

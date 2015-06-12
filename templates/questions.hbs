@@ -5,7 +5,7 @@
     <h3>List of questions:</h3>
     <ul>
       {{#each}}
-        <li>"{{question}}", created by {{author}}</li>
+        <li>{{#link-to 'question' this.id}}"{{question}}", created by {{author}}{{/link-to}}</li>
       {{/each}}
     </ul>
   </div>

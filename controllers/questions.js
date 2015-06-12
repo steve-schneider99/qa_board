@@ -4,7 +4,8 @@ QaBoard.QuestionsController = Ember.ArrayController.extend({
       var newQuestion = this.store.createRecord('question', {
         question: this.get('question'),
         author: this.get('author'),
-        description: this.get('description')
+        description: this.get('description'),
+        answers: []
       });
       newQuestion.save();
       this.set('question', '');
