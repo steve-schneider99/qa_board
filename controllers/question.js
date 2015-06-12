@@ -12,6 +12,14 @@ QaBoard.QuestionController = Ember.ObjectController.extend({
         this.get('model').destroyRecord();
         this.transitionToRoute('questions');
       }
+    },
+    addAnswer: function() {
+      var newAnswer = this.get('addAnswer')
+      this.get('answers').pushObject(newAnswer);
+    },
+    deleteAnswer: function(params) {
+      var answers = this.get('answers');
+      answers.popObject(answers);
     }
   }
 });
