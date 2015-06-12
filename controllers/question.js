@@ -19,9 +19,9 @@ QaBoard.QuestionController = Ember.ObjectController.extend({
       this.set('answers', newAnswers);
       this.set('newAnswer', '');
     },
-    deleteAnswer: function() {
+    deleteAnswer: function(params) {
       var answers = this.get('answers');
-      answers.popObject(params);
+      answers.removeObject(params);
     }
   }
 });

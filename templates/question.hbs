@@ -21,14 +21,12 @@
     {{/if}}
 
     <h2>Answers to this question:</h2>
-    <p>Click on an answer below to remove it</p>
-
-    <p>answers should be here: {{answers}}</p>
-    <!-- <ul>
-      {{#each answers}}
+    <ul>
+      {{#each answer in model.answers}}
       <li>{{answer}}</li>
+      <li><button class="btn btn-danger" {{action 'deleteAnswer' answer}}>Delete Answer</button></li>
       {{/each}}
-    </ul> -->
+    </ul>
   </div>
   <div class="col-md-4">
   <h3>Add answers below:</h3>
